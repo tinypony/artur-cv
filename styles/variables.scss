@@ -1,0 +1,6 @@
+$body-font: 'Quicksand', sans-serif;
+
+@mixin title-font() {
+  font-family: 'Work Sans', sans-serif;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+}
