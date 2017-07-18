@@ -1,41 +1,68 @@
 @import '../../../styles/variables';
 
+@media (min-width: $breakpoint-small) {
+  .page-section_content.direction__right {
+    flex-direction: row;
+  }
+
+  .page-section_content.direction__left {
+    flex-direction: row-reverse;
+  }
+
+  .page-section_content .page-section_content_text {
+    font-size: 1.1rem;
+    max-width: 30rem;
+  }
+
+  .page-section_content.direction__right .page-section_content_text {
+    text-align: left;
+    margin-left: 2rem;
+  }
+
+  .page-section_content.direction__right .page-section_name {
+    text-align: left;
+    margin-left: 2rem;
+  }
+
+  .page-section_content.direction__left .page-section_content_text {
+    text-align: right;
+    margin-right: 2rem;
+  }
+
+  .page-section_content.direction__left .page-section_name {
+    text-align: right;
+    margin-right: 2rem;
+  }
+
+  .page-section_content {
+    justify-content: center;
+  }
+}
+
+@media (max-width: $breakpoint-small) {
+  .page-section_content {
+    flex-direction: column-reverse;
+  }
+
+  .page-section_content_text {
+    font-size: 1.3rem;
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+  }
+
+  .page-section_content {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
 .page-section_content {
   display: flex;
-  justify-content: center;
-}
-
-.page-section_content.direction__right {
-  flex-direction: row;
-}
-
-.page-section_content.direction__left {
-  flex-direction: row-reverse;
 }
 
 .page-section_content_text {
   font-family: $body-font;
-  font-size: 1.1rem;
   font-weight: 400;
-  max-width: 30rem;
-}
-
-.page-section_content.direction__right .page-section_content_text {
-  text-align: left;
-  margin-left: 2rem;
-}
-
-.page-section_content.direction__right .page-section_name {
-  text-align: left;
-  margin-left: 2rem;
-}
-
-.page-section_content.direction__left .page-section_content_text {
-  text-align: right;
-  margin-right: 2rem;
-}
-
-.page-section_content.direction__left .page-section_name {
-  text-align: right;
-  margin-right: 2rem;
 }

@@ -1,0 +1,12 @@
+@import '../styles/variables.scss';
+@media (max-width: $breakpoint-small) {
+  .section_how {
+    .page-section_media .aws_pic {
+      max-width: 100%;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-small) {
+
+}

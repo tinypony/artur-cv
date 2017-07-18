@@ -1,0 +1,13 @@
+@import '../styles/variables.scss';
+
+@media (max-width: $breakpoint-small) {
+  .section_where {
+    .page-section_media .helsinki-image {
+      max-width: 100%;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-small) {
+
+}

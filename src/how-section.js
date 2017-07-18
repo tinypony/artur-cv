@@ -6,6 +6,7 @@ import React from 'react'
 import Waypoint from 'react-waypoint'
 import ArchitectureImg from '../styles/img/architecture.png';
 import classNames from 'classnames'
+import './how-section.scss'
 
 const CLASSES = {
   CONTENT_WRAPPER: 'animation-wrapper',
@@ -42,8 +43,8 @@ export default class HowSection extends React.Component {
             <div className="text-wrapper appear right opacity">
               <SectionName text="How" />
               <p className="page-section_content_text">I have experience working in small and mid-sized agile teams using Scrum and Scaled Agile Framework (SAFe)</p>
-              <p className="page-section_content_text">When it comes to technology I have plethora of ways to have things done. This particular page of mine
-              is written using ReactJS with D3.js for data visualization, packaged using webpack and statically hosted in AWS S3 with CloudFront CDN sitting in front of it.</p>
+              <p className="page-section_content_text">When it comes to technical side of things I have plethora of ways to have things done. This particular page of mine
+              is written using ReactJS and a little bit of D3.js for data visualization, packaged using webpack and statically hosted in AWS S3 with CloudFront CDN sitting in front of it.</p>
             </div>
           </SectionContent>
         </div>

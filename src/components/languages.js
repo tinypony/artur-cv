@@ -60,7 +60,7 @@ const language_data = [
 const x = (d) => d.name
 
 const chartProperties = {
-  width: 650,
+  width: _.min([650, window.innerWidth]),
   height: 300,
   margins: {left: 50, right: 50, top: 50, bottom: 50},
   title: "Language skills",

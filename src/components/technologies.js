@@ -77,8 +77,8 @@ const x = (d) => d.name
 
 
 const chartProperties = {
-  width: 700,
-  diameter: 400,
+  width: _.min([700, window.innerWidth]),
+  diameter: _.min([400, window.innerWidth]),
   height: 560,
   margins: {left: 50, right: 50, top: 50, bottom: 50},
   title: "Language skills",
@@ -219,7 +219,7 @@ export default class LanguageSkillChart extends React.Component {
   }
 
   render() {
-    return <svg ref={node => this.node = node}
+    return <svg className="technologies-svg" ref={node => this.node = node}
       width={chartProperties.width} height={chartProperties.height}
     />
   }

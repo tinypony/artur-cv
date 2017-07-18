@@ -5,12 +5,12 @@ import SectionMedia from './components/section/section-media';
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Waypoint from 'react-waypoint'
-import ManImg from '../styles/img/standing.png';
 import InstagramOne from '../styles/img/insta_1.png'
 import InstagramTwo from '../styles/img/insta_2.png'
 import Pack from './components/pack'
 import classNames from 'classnames'
-import './who_section.scss'
+import MediaQuery from 'react-responsive'
+import './who-section.scss'
 
 const CLASSES = {
   MEDIA_CONTENT_WRAPPER: 'animation-wrapper',
@@ -42,20 +42,32 @@ export default class WhoSection extends React.Component {
   render() {
     const contentClass = classNames(CLASSES.TEXT_CONTENT_WRAPPER, this.state.contentClass)
     const mediaContentClass = classNames(CLASSES.MEDIA_CONTENT_WRAPPER, this.state.contentClass)
+    const paragraphClass = 'page-section_content_text appear bottom opacity';
 
     return <Section className="section_who">
       <SectionContent direction="right">
         <Waypoint onEnter={this.handleWaypointEnter} />
         <SectionMedia className="who-section_media">
-          <Pack className="who-pack" pictures={[InstagramOne, InstagramTwo]} />
+          <MediaQuery query='(min-device-width: 1024px)'>
+            <Pack className="who-pack" pictures={[InstagramOne, InstagramTwo]} />
+          </MediaQuery>
+          <MediaQuery query='(max-device-width: 1024px)'>
+            <Pack className="who-pack" isMobile pictures={[InstagramOne, InstagramTwo]} />
+          </MediaQuery>
         </SectionMedia>
         <div className={contentClass}>
           <SectionName text="Who" className='appear right opacity'/>
-          <p className="page-section_content_text appear bottom opacity">My name is Artur and I am a software engineer,
+          <p className={paragraphClass}>My name is Artur and I am a software engineer,
           which is a sophisticated name for a programmer.</p>
-          <p className="page-section_content_text appear bottom opacity">
-          I've got Master's degree in Software Engineering in Aalto University and
+          <p className={paragraphClass}>
+          I've got Master's degree in computer science with Cloud computing as my major in Aalto University (former Helsinki University of Technology) and
           am ready to take up on new challeges.</p>
+          <p className={paragraphClass}>
+          I am passionate about coding and love to learn new languages and technologies, I am curious about the entire stack instead of only front-end or back-end. In other words I am not a prisoner of my job title.
+          </p>
+          <p className={paragraphClass}>
+          Outside of work I am an outgoing person who loves to hit the road, meet new people and be awesome.
+          </p>
         </div>
       </SectionContent>
     </Section>

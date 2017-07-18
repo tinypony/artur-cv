@@ -1,0 +1,32 @@
+@import '../../styles/variables.scss';
+
+
+
+@media (max-width: $breakpoint-small) {
+  .section_where {
+    .where-section_map-wrapper .helsinki-image {
+      background-image: url('../../styles/img/helsinki.png');
+      box-sizing: border-box;
+      width: 360px;
+      height: 360px;
+      border-radius: 180px;
+      border: 0.7rem solid rgba(180, 180, 180, 0.7);
+      box-shadow: 4px 4px 4px rgba(255, 255, 255, 0.4) inset;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-small) {
+  .section_where {
+    .where-section_map-wrapper .helsinki-image {
+      background-image: url('../../styles/img/helsinki.png');
+      box-sizing: border-box;
+      width: 400px;
+      height: 400px;
+      border-radius: 200px;
+      border: 0.7rem solid rgba(180, 180, 180, 0.7);
+      box-shadow: 4px 4px 4px rgba(255, 255, 255, 0.4) inset;
+    }
+  }
+}

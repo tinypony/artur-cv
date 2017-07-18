@@ -50,7 +50,7 @@ export default class WhatSection extends React.Component {
               <p className="page-section_content_text appear bottom opacity">
               Although many of the things listed here are heavily used in the industry,
               every software project has a unique stack making it impossible to know everything from the day one.
-              Therefore my main skill remains the same — it is the ability to learn new things and adapt to new challenges.
+              Therefore my main skill remains the same — it is the ability to learn new things and adapt to ever changing technology landscape.
               </p>
             </div>
           </SectionContent>

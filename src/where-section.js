@@ -5,6 +5,7 @@ import SectionMedia from './components/section/section-media';
 import React from 'react'
 import Waypoint from 'react-waypoint'
 import classNames from 'classnames'
+import Map from './components/map'
 
 const CLASSES = {
   CONTENT_WRAPPER: 'animation-wrapper',
@@ -33,12 +34,15 @@ export default class WhereSection extends React.Component {
 
     return <Section className="section_where">
       <SectionContent direction="left">
+        <SectionMedia>
+          <Map />
+        </SectionMedia>
         <div className="text-wrapper">
           <SectionName text="Where" />
           <p className="page-section_content_text">
           I live in Helsinki, but in the current ever shrinking world does it matter?
           I think not, especially taking into the account the fact that I am willing to go anywhere on this planet
-          to work on the most interesting and terrific projects.</p>
+          to work on the most interesting and amazing projects.</p>
           <p className="page-section_content_text"></p>
         </div>
       </SectionContent>
