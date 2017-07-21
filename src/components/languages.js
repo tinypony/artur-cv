@@ -12,6 +12,10 @@ const CLASSNAMES = {
   CONTAINER: 'languages-wrapper'
 }
 
+const MINIMUM_MOBILE_BAR_LENGTH = 50
+const MOBILE_BAR_LABEL_CLEARANCE = 5
+
+
 const language_data = [
   {
     name: "Java",
@@ -62,7 +66,6 @@ const x = (d) => d.name
 const chartProperties = {
   width: _.min([650, window.innerWidth]),
   height: 300,
-  margins: {left: 50, right: 50, top: 50, bottom: 50},
   title: "Language skills",
   xScale: 'ordinal',
   showLegend: false,
@@ -81,11 +84,18 @@ export default class LanguageSkillChart extends React.Component {
   }
 
   componentDidMount() {
-    this.createLanguagesChart(language_data)
+    this.createLanguagesChart(language_data, this.props.isMobile)
   }
 
   componentDidUpdate() {
-    this.createLanguagesChart(language_data)
+    const zeroedData = _.each(language_data, d => {
+      const newD = Object.assign({}, d)
+      newD.experience = 0
+      return newD;
+    })
+
+    this.createLanguagesChart(zeroedData, this.props.isMobile)
+    this.createLanguagesChart(language_data, this.props.isMobile)
   }
 
   getDataMaxValue(data) {
@@ -102,39 +112,109 @@ export default class LanguageSkillChart extends React.Component {
       .value();
   }
 
-  createLanguagesChart(data) {
-    const node = this.node
+  getScale(data, isMobile) {
+    const cp = chartProperties
     const dataMax = _.chain(data)
       .map(d => d.experience)
       .max()
       .value();
 
-    const yScale = scaleLinear()
+    let rangeMax;
+
+    if(isMobile) {
+      rangeMax = cp.width - this.props.margins.left - this.props.margins.right
+    } else {
+      rangeMax = cp.height - this.props.margins.top - this.props.margins.bottom
+    }
+
+    return scaleLinear()
       .domain([0, dataMax])
-      .range([0, chartProperties.height - chartProperties.margins.top - chartProperties.margins.bottom]);
+      .range([0, rangeMax])
+  }
+
+  getBarTranslate(d, i, scale, isMobile) {
+    let translateX, translateY;
+    if(!isMobile) {
+      translateX = i * (this.props.barWidth + this.props.barGap) + this.props.margins.left
+      translateY = chartProperties.height - this.props.margins.bottom - scale(d.experience)
+    } else {
+      translateX = this.props.margins.left;
+      translateY = i * (this.props.barWidth + this.props.barGap) + this.props.margins.top
+    }
+    return `translate(${translateX}, ${translateY})`
+  }
+
+  getBarWidth(d, scale, isMobile) {
+    if(isMobile) {
+      return scale(d.experience)
+    } else{
+      return this.props.barWidth
+    }
+  }
+
+  getLabelX(d, scale, isMobile) {
+    if (!isMobile) {
+      return this.props.barWidth/2
+    } else {
+      if ( this.isLabelOverflown(d, scale) ) {
+        return scale(d.experience) + MOBILE_BAR_LABEL_CLEARANCE
+      } else {
+        return scale(d.experience) - MOBILE_BAR_LABEL_CLEARANCE
+      }
+    }
+  }
+
+ isLabelOverflown(d, scale) {
+   return scale(d.experience) < MINIMUM_MOBILE_BAR_LENGTH
+ }
+
+ getLabelY(d, scale, isMobile) {
+   if(!isMobile) {
+     return scale(d.experience)
+   } else {
+     return -1
+   }
+ }
+
+ getLabelClass(d, scale, isMobile) {
+   const defaultClass = 'language-chart_label'
+
+   if(!isMobile) {
+     return classNames(defaultClass, 'normal-orientation')
+   } else {
+     const defaultMobileClass = classNames(defaultClass, 'mobile-orientation')
+
+     if(this.isLabelOverflown(d, scale)) {
+       return classNames(defaultClass, 'mobile-orientation', 'overflown')
+     } else {
+       return defaultMobileClass
+     }
+   }
+ }
+
+  createLanguagesChart(data, isMobile) {
+    const node = this.node
+
+    const scale = this.getScale(data, isMobile)
 
     let bars = select(node)
       .selectAll('g')
       .data(data)
       .enter().append('g')
-        .attr("transform", (d, i) => {
-          const translateX = i * (this.props.barWidth + this.props.barGap) + chartProperties.margins.left
-          const translateY = chartProperties.height - chartProperties.margins.bottom - yScale(d.experience)
-          return `translate(${translateX}, ${translateY})`
-        })
+        .attr("transform", (d, i) => this.getBarTranslate(d, i, scale, isMobile))
 
     bars.append('rect')
       .attr('x', 0)
       .attr('y', 0)
       .style('fill', 'steelblue')
-      .attr("width", this.props.barWidth)
-      .attr('height', d => yScale(d.experience))
+      .attr('width', d => this.getBarWidth(d, scale, isMobile))
+      .attr('height', d => this.getBarWidth(d, scale, !isMobile))
 
     bars.append('text')
-      .attr("x", this.props.barWidth/2 )
-      .attr("y", d => yScale(d.experience))
+      .attr("x", d => this.getLabelX(d, scale, isMobile))
+      .attr("y", d => this.getLabelY(d, scale, isMobile))
       .attr("dy", "1.3em")
-      .attr('class', 'language-chart_label')
+      .attr('class', d => this.getLabelClass(d, scale, isMobile))
       .text(d => d.name)
 
     bars.exit()
@@ -151,11 +231,25 @@ export default class LanguageSkillChart extends React.Component {
 LanguageSkillChart.propTypes = {
   className: PropTypes.string,
   barWidth: PropTypes.number,
-  barGap: PropTypes.number
+  barGap: PropTypes.number,
+  isMobile: PropTypes.bool,
+  margins: PropTypes.shape({
+    top: PropTypes.number,
+    bottom: PropTypes.number,
+    left: PropTypes.number,
+    right: PropTypes.number
+  })
 }
 
 LanguageSkillChart.defaultProps = {
   className: CLASSNAMES.CONTAINER,
   barWidth: 80,
-  barGap: 20
+  barGap: 20,
+  isMobile: true,
+  margins: {
+    left: 50,
+    right: 50,
+    top: 50,
+    bottom: 50
+  }
 }

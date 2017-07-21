@@ -1,9 +1,13 @@
 import Section from './components/section.js'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
 import Waypoint from 'react-waypoint'
 import _ from 'lodash'
+import classNames from 'classnames'
 import '../styles/main-section.scss'
+
+const PARALLAX_SCROLL = 'parallax'
 
 export default class MainSection extends React.Component {
 
@@ -48,4 +52,12 @@ export default class MainSection extends React.Component {
       </div>
     </div>
   }
+}
+
+MainSection.propTypes = {
+  scrollStyle: PropTypes.oneOf([PARALLAX_SCROLL, 'fixed'])
+}
+
+MainSection.defaultProps = {
+  scrollStyle: PARALLAX_SCROLL
 }

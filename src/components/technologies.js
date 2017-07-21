@@ -1,14 +1,16 @@
 import React from 'react'
-import { scaleLinear, scaleOrdinal} from 'd3-scale'
+import PropTypes from 'prop-types'
+import {scaleLinear, scaleOrdinal} from 'd3-scale'
 import {schemeSet2 as colorScheme} from 'd3-scale-chromatic'
 import {hierarchy, pack} from 'd3-hierarchy'
 import {precisionRound as format} from 'd3-format'
 import { select } from 'd3-selection'
-import {forceSimulation, forceManyBody, forceX, forceY} from 'd3-force'
 import _ from 'lodash'
 import './technologies.scss'
 
 import './languages.scss'
+
+const BUBBLE_OFFSET_Y = 60
 
 const technology_data = [
   {
@@ -77,9 +79,6 @@ const x = (d) => d.name
 
 
 const chartProperties = {
-  width: _.min([700, window.innerWidth]),
-  diameter: _.min([400, window.innerWidth]),
-  height: 560,
   margins: {left: 50, right: 50, top: 50, bottom: 50},
   title: "Language skills",
   xScale: 'ordinal',
@@ -92,7 +91,7 @@ const chartProperties = {
   ]
 }
 
-export default class LanguageSkillChart extends React.Component {
+export default class TechSkills extends React.Component {
 
   constructor(props) {
     super(props);
@@ -122,19 +121,25 @@ export default class LanguageSkillChart extends React.Component {
   }
 
   createLegend(categories, color) {
-    let legend = select(this.node).selectAll('.legend_entry')
+    let legendEntry = select(this.node).selectAll('.legend_entry')
       .data(categories)
     .enter()
       .append('g')
       .attr('class', 'legend_entry')
-      .attr('transform', (d, i) => `translate(${chartProperties.width - 140}, ${50 + i * 30})`)
+      .attr('transform', (d, i) => {
+        const x = i % 2
+        const y = Math.floor(i / 2)
+        let translateX = chartProperties.margins.left + x * 140
+        let translateY = 50 + y * 30
+        return `translate(${translateX}, ${translateY})`
+      })
 
-    legend.append('rect')
+    legendEntry.append('rect')
       .attr("width", 15)
       .attr('height', 15)
       .attr('fill', d => color(d))
 
-    legend.append('text')
+    legendEntry.append('text')
       .attr('dy', '12')
       .attr('dx', '20')
       .attr('class', 'legend-text')
@@ -153,7 +158,7 @@ export default class LanguageSkillChart extends React.Component {
       .range([5, 50])
 
     let color = scaleOrdinal(colorScheme)
-    let bubble = pack().size([chartProperties.width, chartProperties.height]).padding(1.5)
+    let bubble = pack().size([this.props.width, this.props.height]).padding(1.5)
 
     let flattened = _.map(technology_data, d => {
       return {packageName: null, className: d.name, category: d.category, value: d.experience}
@@ -170,7 +175,7 @@ export default class LanguageSkillChart extends React.Component {
     .enter()
       .append('g')
       .attr("class", "node")
-      .attr("transform", d => `translate(${d.x}, ${d.y})` )
+      .attr("transform", d => `translate(${d.x}, ${d.y + BUBBLE_OFFSET_Y})` )
 
     node.append('circle')
       .attr('r', d => d.r)
@@ -194,7 +199,7 @@ export default class LanguageSkillChart extends React.Component {
 
     const yScale = scaleLinear()
       .domain([0, dataMax])
-      .range([0, chartProperties.height]);
+      .range([0, this.props.height]);
 
     select(node)
       .selectAll('rect')
@@ -213,14 +218,25 @@ export default class LanguageSkillChart extends React.Component {
       .data(technology_data)
       .style('fill', '#1f77b4')
       .attr('x', (d, i) => i * 30 + 60)
-      .attr('y', d => chartProperties.height - yScale(d.experience))
+      .attr('y', d => this.props.height - yScale(d.experience))
       .attr('height', d => yScale(d.experience))
       .attr('width', 25)
   }
 
   render() {
     return <svg className="technologies-svg" ref={node => this.node = node}
-      width={chartProperties.width} height={chartProperties.height}
+      width={this.props.width} height={this.props.height}
     />
   }
+}
+
+TechSkills.propTypes = {
+  height: PropTypes.number,
+  width: PropTypes.number,
+  isMobile: PropTypes.bool
+}
+
+TechSkills.defaultProps = {
+  height: 560,
+  width: 700
 }

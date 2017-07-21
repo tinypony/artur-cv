@@ -1,4 +1,6 @@
-$body-font: 'Quicksand', sans-serif;
+$body-font: 'Raleway', sans-serif;
+$body-font-weight: 300;
+$body-font-size: 1.4rem;
 $breakpoint-small: 1024px;
 
 @mixin title-font() {

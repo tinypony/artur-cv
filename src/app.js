@@ -9,18 +9,19 @@ import WhoSection from './who-section'
 import WhatSection from './what-section'
 import HowSection from './how-section'
 import WhereSection from './where-section'
-
+import PropTypes from 'prop-types'
+import Constant from './util/constant'
 import '../styles/index.scss';
 
 export default class App extends React.Component {
   render() {
-
+    console.log('App screen ' + this.props.screenType);
     return (
       <div>
         <MainSection />
         <div className="sections">
-          <WhoSection />
-          <WhatSection />
+          <WhoSection screenType={this.props.screenType} />
+          <WhatSection screenType={this.props.screenType} />
           <HowSection />
           <WhereSection />
         </div>
@@ -42,4 +43,13 @@ export default class App extends React.Component {
       </div>
     )
   }
+}
+
+
+App.propTypes = {
+  screenType: PropTypes.oneOf([Constant.SCREEN_TYPE.MOBILE, Constant.SCREEN_TYPE.LARGE])
+}
+
+App.defaultProps = {
+  screenType: Constant.SCREEN_TYPE.LARGE
 }

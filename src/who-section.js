@@ -4,12 +4,13 @@ import SectionContent from './components/section/section-content';
 import SectionMedia from './components/section/section-media';
 import React from 'react'
 import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
 import Waypoint from 'react-waypoint'
 import InstagramOne from '../styles/img/insta_1.png'
 import InstagramTwo from '../styles/img/insta_2.png'
 import Pack from './components/pack'
 import classNames from 'classnames'
-import MediaQuery from 'react-responsive'
+import Constant from './util/constant'
 import './who-section.scss'
 
 const CLASSES = {
@@ -35,25 +36,26 @@ export default class WhoSection extends React.Component {
     });
   }
 
-  handlePictureClick(arg1) {
-    console.log(arg1.target)
-  }
-
   render() {
     const contentClass = classNames(CLASSES.TEXT_CONTENT_WRAPPER, this.state.contentClass)
     const mediaContentClass = classNames(CLASSES.MEDIA_CONTENT_WRAPPER, this.state.contentClass)
     const paragraphClass = 'page-section_content_text appear bottom opacity';
 
+    let pack;
+
+    if(this.props.screenType === Constant.SCREEN_TYPE.LARGE) {
+      pack = <Pack className="who-pack" pictures={[InstagramOne, InstagramTwo]} />
+    } else {
+      pack = <Pack className="who-pack" isMobile pictures={[InstagramOne, InstagramTwo]} />
+    }
+
     return <Section className="section_who">
       <SectionContent direction="right">
         <Waypoint onEnter={this.handleWaypointEnter} />
         <SectionMedia className="who-section_media">
-          <MediaQuery query='(min-device-width: 1024px)'>
-            <Pack className="who-pack" pictures={[InstagramOne, InstagramTwo]} />
-          </MediaQuery>
-          <MediaQuery query='(max-device-width: 1024px)'>
-            <Pack className="who-pack" isMobile pictures={[InstagramOne, InstagramTwo]} />
-          </MediaQuery>
+          {
+            pack
+          }
         </SectionMedia>
         <div className={contentClass}>
           <SectionName text="Who" className='appear right opacity'/>
@@ -72,4 +74,12 @@ export default class WhoSection extends React.Component {
       </SectionContent>
     </Section>
   }
+}
+
+WhoSection.propTypes = {
+  screenType: PropTypes.oneOf([Constant.SCREEN_TYPE.MOBILE, Constant.SCREEN_TYPE.LARGE])
+}
+
+WhoSection.defaultProps = {
+  screenType: Constant.SCREEN_TYPE.MOBILE
 }

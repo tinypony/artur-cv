@@ -5,12 +5,16 @@ body {
   overflow-x: hidden;
 }
 
+.sections {
+  background: white;
+  padding-bottom: 4rem;
+}
+
 .contact-details {
-  background-color: #112857;
+  background-color: #0d1d2c;
   font-family: $body-font;
   color: white;
   padding: 3rem 1rem;
-  margin-top: 2rem;
 
   .call-to-action {
     font-size: 2rem;

@@ -5,7 +5,9 @@ import SectionMedia from './components/section/section-media';
 import LanguageSkills from './components/languages';
 import TechSkills from './components/technologies';
 import React from 'react'
+import PropTypes from 'prop-types'
 import Waypoint from 'react-waypoint'
+import Constant from './util/constant'
 import classNames from 'classnames'
 
 const CLASSES = {
@@ -32,14 +34,31 @@ export default class WhatSection extends React.Component {
 
   render() {
     const contentClass = classNames(CLASSES.CONTENT_WRAPPER, this.state.contentClass)
+    const isMobile = this.props.screenType === Constant.SCREEN_TYPE.MOBILE;
+    let languageChartProps = {barWidth: 60, barGap:20}
+    let technologiesChartProps = {width: 700, height: 560}
+
+    if(isMobile) {
+      languageChartProps.barWidth = 25
+      languageChartProps.barGap = 15
+      languageChartProps.margins = {
+        top: 20,
+        left: 15,
+        bottom: 20,
+        right: 15
+      }
+
+      technologiesChartProps.height = 400
+      technologiesChartProps.width = window.innerWidth
+    }
 
     return <Section className="section_what">
       <Waypoint onEnter={this.handleWaypointEnter}>
         <div>
           <SectionContent direction="left">
             <SectionMedia className="bars-media">
-              <LanguageSkills barWidth={60} barGap={20} />
-              <TechSkills />
+              <LanguageSkills {...languageChartProps} isMobile={isMobile} />
+              <TechSkills {...technologiesChartProps} isMobile={isMobile} />
             </SectionMedia>
             <div className={contentClass}>
               <SectionName text="What" className="appear left opacity"/>
@@ -58,4 +77,12 @@ export default class WhatSection extends React.Component {
       </Waypoint>
     </Section>
   }
+}
+
+WhatSection.propTypes = {
+  screenType: PropTypes.oneOf([Constant.SCREEN_TYPE.LARGE, Constant.SCREEN_TYPE.MOBILE])
+}
+
+WhatSection.defaultProps = {
+  screenType: Constant.SCREEN_TYPE.LARGE
 }

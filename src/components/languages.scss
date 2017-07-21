@@ -4,8 +4,24 @@
 
 .language-chart_label {
   font-family: "Quicksand", sans-serif;
+}
+
+.language-chart_label.normal-orientation {
   font-weight: 400;
   font-size: 0.9rem;
-  fill: charcoal;
+  fill: #383838;
   text-anchor: middle;
+}
+
+.language-chart_label.mobile-orientation {
+  font-weight: 400;
+  font-size: 0.9rem;
+  text-anchor: end;
+  fill: white;
+}
+
+
+.language-chart_label.mobile-orientation.overflown {
+  fill: #383838;
+  text-anchor: start;
 }

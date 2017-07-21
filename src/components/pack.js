@@ -40,7 +40,7 @@ export default class Pack extends React.Component {
 
   handlePictureClick(clickedImage) {
     if(this.props.isMobile) return
-    
+
     const clickedImageSrc = clickedImage.props.src;
     const rearrangedPictures = _.without(this.state.pictures, clickedImageSrc)
     //Put selected image in the beginning

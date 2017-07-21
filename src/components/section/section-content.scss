@@ -10,7 +10,8 @@
   }
 
   .page-section_content .page-section_content_text {
-    font-size: 1.1rem;
+    font-size: $body-font-size;
+    line-height: 1.9rem;
     max-width: 30rem;
   }
 
@@ -53,7 +54,6 @@
   }
 
   .page-section_content {
-    text-align: center;
     justify-content: center;
   }
 }
@@ -64,5 +64,5 @@
 
 .page-section_content_text {
   font-family: $body-font;
-  font-weight: 400;
+  font-weight: $body-font-weight;
 }
