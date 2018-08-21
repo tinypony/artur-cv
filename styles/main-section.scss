@@ -2,7 +2,7 @@
 
 @media (min-width: $breakpoint-small) {
   $max_height_main_section: 900px;
-  
+
   .dark-background {
     height: 100vh;
     width: 100%;
@@ -108,7 +108,7 @@
     width: 100%;
     position: absolute;
     z-index: -1;
-    background: url('./img/leaning.png');
+    background: url('./img/leaning_mobile.png');
     background-size: cover;
     background-repeat: no-repeat;
   }
