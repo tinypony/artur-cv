@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "NexaBold";
+  src: url("./assets/fonts/Nexa_Free_Bold-webfont.woff") format("woff"),
+    url("./assets/fonts/Nexa_Free_Bold-webfont.woff2") format("woff2")
+}
+
+@font-face {
+  font-family: "NexaLight";
+  src: url("./assets/fonts/Nexa_Free_Light-webfont.woff") format("woff"),
+    url("./assets/fonts/Nexa_Free_Light-webfont.woff2") format("woff2")
+}
+
+body {
+  color: #393939;
+}
