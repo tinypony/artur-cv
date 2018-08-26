@@ -4,12 +4,8 @@
   "description": "Artur web CV",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --progress --profile --colors",
-    "lint": "eslint --ext js --ext jsx src || exit 0",
-    "dev": "webpack --mode development",
-    "start:dev": "webpack-dev-server --mode development"
+    "dev": "webpack-dev-server --mode development"
   },
-  "license": "MIT",
   "dependencies": {
     "moment": "^2.22.2",
     "prop-types": "^15.6.2",
