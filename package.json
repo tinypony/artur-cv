@@ -2,7 +2,6 @@
   "name": "artur-web-cv",
   "version": "0.0.2",
   "description": "Artur web CV",
-  "main": "''",
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack-dev-server --progress --profile --colors",

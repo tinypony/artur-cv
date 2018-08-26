@@ -13,3 +13,9 @@
 body {
   color: #393939;
 }
+
+@media (max-width: 1023px) {
+  body {
+    font-size: 14px;
+  }
+}

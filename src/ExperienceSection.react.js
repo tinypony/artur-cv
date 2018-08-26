@@ -76,7 +76,6 @@ export default class EducationSection extends PureComponent {
       </ExperienceBlock>
       <ExperienceBlock company='Comptel' position='Junior software engineer' startingDate={moment('2011-05-02')} endDate={moment('2014-12-31')}>
         <NexaLightText>
-          Junior software engineer
           Developed SDK platform that is used by company’s
           products. Implemented both front-end and back-end
           parts of the SDK.
