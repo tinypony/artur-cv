@@ -43,6 +43,11 @@ const ExperienceBlock = styled(({company, position, startingDate, endDate, child
 export default class EducationSection extends PureComponent {
   render() {
     return <Section image={titleImage} title="Experience">
+      <ExperienceBlock company='EPAM Systems' position='Senior software engineer' startingDate={moment('2019-03-22')}>
+        <NexaLightText>
+          Working as a software engineer for customer projects in life sciences. 
+        </NexaLightText>
+      </ExperienceBlock>
       <ExperienceBlock company='PHZ FullStack' position='Consultant' startingDate={moment('2017-11-03')}>
         <NexaLightText>
           Working as a consulting fullstack developer specializing in JavaScript

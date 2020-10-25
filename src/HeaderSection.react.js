@@ -21,21 +21,26 @@ const ContenWrapper = styled.div`
   }
 `
 
-const HeadImage = styled.img`
+const HeadImage = styled.div`
   border-radius: 250px;
+  background-color: white;
+  padding: 1rem;
+  overflow: hidden;
 
   ${props => props.theme.media.desktop} {
     position: absolute;
     left: -10rem;
-    padding: 1rem;
-    background-color: white;
-    width: 250px;
+    img {
+      width: 250px;
+      border-radius: 250px;
+    }
   }
 
   ${props => props.theme.media.upTo.desktop} {
-    padding: 1rem;
-    background-color: white;
-    width: 180px;
+    img {
+      width: 180px;
+      border-radius: 250px;
+    }
   }
 `
 
@@ -117,7 +122,9 @@ export default class HeaderSection extends PureComponent {
     const durationMonths = duration.months()
     return <Section>
       <ContenWrapper>
-        <HeadImage src={head} />
+        <HeadImage>
+          <img src={head} />
+        </HeadImage>
         <HeadSectionTextContent>
           <MainTitle>Artur Latypov</MainTitle>
           <InfoTable>
