@@ -1,7 +1,7 @@
-import React, {PureComponent} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
-import Section from './components/section/Section.react'
+import { Section } from './components'
 import head from './assets/img/head.png'
 
 const ContenWrapper = styled.div`
@@ -113,44 +113,42 @@ const LinkedInLink = styled.a`
   }
 `
 
-export default class HeaderSection extends PureComponent {
-  render() {
-    const startingDate = moment('2011-05-01')
-    const currentDate = moment()
-    const duration = moment.duration(currentDate.diff(startingDate))
-    const durationYears = duration.years()
-    const durationMonths = duration.months()
-    return <Section>
-      <ContenWrapper>
-        <HeadImage>
-          <img src={head} />
-        </HeadImage>
-        <HeadSectionTextContent>
-          <MainTitle>Artur Latypov</MainTitle>
-          <InfoTable>
-            <InfoTableRow>
-              <InfoTitle>Degree</InfoTitle>
-              <InfoPayload>MSc (Tech.) in Software Engineering</InfoPayload>
-            </InfoTableRow>
-            <InfoTableRow>
-              <InfoTitle>Experience</InfoTitle>
-              <InfoPayload>{`${durationYears} years ${durationMonths} months`}</InfoPayload>
-            </InfoTableRow>
-            <InfoTableRow>
-              <InfoTitle>Mobile</InfoTitle>
-              <InfoPayload>+358451195095</InfoPayload>
-            </InfoTableRow>
-            <InfoTableRow>
-              <InfoTitle>LinkedIn</InfoTitle>
-              <InfoPayload>
-                <LinkedInLink href='https://www.linkedin.com/in/arturlatypov/'>
-                  https://linkedin.com/in/arturlatypov/
-                </LinkedInLink>
-              </InfoPayload>
-            </InfoTableRow>
-          </InfoTable>
-        </HeadSectionTextContent>
-      </ContenWrapper>
-    </Section>
-  }
+export const HeaderSection = () => {
+  const startingDate = moment('2011-05-01')
+  const currentDate = moment()
+  const duration = moment.duration(currentDate.diff(startingDate))
+  const durationYears = duration.years()
+  const durationMonths = duration.months()
+  return <Section>
+    <ContenWrapper>
+      <HeadImage>
+        <img src={head} />
+      </HeadImage>
+      <HeadSectionTextContent>
+        <MainTitle>Artur Latypov</MainTitle>
+        <InfoTable>
+          <InfoTableRow>
+            <InfoTitle>Degree</InfoTitle>
+            <InfoPayload>MSc (Tech.) in Software Engineering</InfoPayload>
+          </InfoTableRow>
+          <InfoTableRow>
+            <InfoTitle>Experience</InfoTitle>
+            <InfoPayload>{`${durationYears} years ${durationMonths} months`}</InfoPayload>
+          </InfoTableRow>
+          <InfoTableRow>
+            <InfoTitle>Mobile</InfoTitle>
+            <InfoPayload>+358451195095</InfoPayload>
+          </InfoTableRow>
+          <InfoTableRow>
+            <InfoTitle>LinkedIn</InfoTitle>
+            <InfoPayload>
+              <LinkedInLink href='https://www.linkedin.com/in/arturlatypov/'>
+                https://linkedin.com/in/arturlatypov/
+              </LinkedInLink>
+            </InfoPayload>
+          </InfoTableRow>
+        </InfoTable>
+      </HeadSectionTextContent>
+    </ContenWrapper>
+  </Section>
 }

@@ -1,24 +1,21 @@
-import React, {PureComponent} from 'react'
+import React from 'react'
 import styled, {ThemeProvider} from 'styled-components'
-import Canvas from './components/canvas/Canvas.react'
-import Section from './components/section/Section.react'
-import HeaderSection from './HeaderSection.react'
-import SkillSection from './SkillSection.react'
-import EducationSection from './EducationSection.react'
-import ExperienceSection from './ExperienceSection.react'
+import { Section, PaperSheet } from './components'
+import { HeaderSection } from './HeaderSection'
+import { SkillSection } from './SkillSection'
+import { EducationSection } from './EducationSection'
+import { ExperienceSection } from './ExperienceSection'
 import theme from './theme'
-import './styles.scss'
+import './styles.css'
 
 
-export default class App extends PureComponent {
-  render() {
-    return <ThemeProvider theme={theme}>
-      <Canvas>
-        <HeaderSection />
-        <SkillSection />
-        <EducationSection />
-        <ExperienceSection />
-      </Canvas>
-    </ThemeProvider>
-  }
+export const App = () => {
+  return <ThemeProvider theme={theme}>
+    <PaperSheet>
+      <HeaderSection />
+      <SkillSection />
+      <EducationSection />
+      <ExperienceSection />
+    </PaperSheet>
+  </ThemeProvider>
 }

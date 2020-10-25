@@ -1,7 +1,7 @@
-import React, {PureComponent} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
-const StyledCanvas = styled.div`
+export const PaperSheet = styled.div`
   margin: 0 auto;
   background: white;
 
@@ -15,11 +15,3 @@ const StyledCanvas = styled.div`
   }
 
 `
-
-export default class Canvas extends PureComponent {
-  render() {
-    return <StyledCanvas>
-      {this.props.children}
-    </StyledCanvas>
-  }
-}

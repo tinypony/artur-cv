@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 const BarContainer = styled.div`
@@ -22,10 +22,6 @@ const BarFill = styled.div`
   height: 100%;
 `
 
-export default class LanguageSkillChart extends PureComponent {
-  render() {
-    return <BarContainer>
-      <BarFill value={this.props.value} />
-    </BarContainer>
-  }
-}
+export const Bar = ({ value }) => <BarContainer>
+  <BarFill value={value} />
+</BarContainer>

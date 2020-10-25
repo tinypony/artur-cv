@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
@@ -79,18 +79,37 @@ const SectionContent = styled.div`
   }
 `
 
-export default class Section extends PureComponent {
-  render() {
-    return <StyledSection>
-      <SectionTitleBody>
-        <SectionTitleWrapper>
-          {this.props.image ? <img src={this.props.image} width={60} /> : null}
-          <SectionTitle>{this.props.title || ''}</SectionTitle>
-        </SectionTitleWrapper>
-      </SectionTitleBody>
-      <SectionContent>{this.props.children}</SectionContent>
-    </StyledSection>
+const SubsectionTitle = styled.h2`
+  margin-top: 0;
+  font-family: NexaBold;
+
+  ${props => props.theme.media.upTo.tablet} {
+    font-size: 1rem;
   }
+
+  ${props => props.theme.media.from.tablet} {
+    font-size: 1.1rem;
+  }
+`
+
+export const Subsection = ({title, children}) => {
+  return <div>
+    <SubsectionTitle>{title}</SubsectionTitle>
+    {children}
+  </div>
+}
+
+
+export const Section = ({ title, image, children }) => {
+  return <StyledSection>
+    <SectionTitleBody>
+      <SectionTitleWrapper>
+        { image ? <img src={image} width={60} /> : null }
+        <SectionTitle>{ title || '' }</SectionTitle>
+      </SectionTitleWrapper>
+    </SectionTitleBody>
+    <SectionContent>{ children }</SectionContent>
+  </StyledSection>
 }
 
 Section.propTypes = {
