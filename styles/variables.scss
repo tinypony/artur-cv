@@ -1,9 +1,0 @@
-$body-font: 'Raleway', sans-serif;
-$body-font-weight: 300;
-$body-font-size: 1.4rem;
-$breakpoint-small: 1024px;
-
-@mixin title-font() {
-  font-family: 'Work Sans', sans-serif;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
-}
