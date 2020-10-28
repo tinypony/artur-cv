@@ -41,11 +41,11 @@ const SectionTitleBody = styled.div`
     width: 25%;
     background-color: ${props => props.theme.color.leftPadBackground};
     text-align: end;
-    font-size: 1.4rem;
+    font-size: ${props => props.theme.font.size.large};
   }
 
   ${props => props.theme.media.upTo.desktop} {
-    font-size: 1.1rem;
+    font-size: ${props => props.theme.font.size.mediumLarge};
   }
 `
 
@@ -64,6 +64,7 @@ const SectionTitle = styled.div`
 
 const SectionContent = styled.div`
   background-color: white;
+  font-size: ${props => props.theme.font.size.small};
 
   ${props => props.theme.media.desktop} {
     width: 75%;
@@ -82,14 +83,7 @@ const SectionContent = styled.div`
 const SubsectionTitle = styled.h2`
   margin-top: 0;
   font-family: NexaBold;
-
-  ${props => props.theme.media.upTo.tablet} {
-    font-size: 1rem;
-  }
-
-  ${props => props.theme.media.from.tablet} {
-    font-size: 1.1rem;
-  }
+  font-size: ${props => props.theme.font.size.large};
 `
 
 export const Subsection = ({title, children}) => {

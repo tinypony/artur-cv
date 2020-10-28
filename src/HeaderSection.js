@@ -65,9 +65,7 @@ const HeadSectionTextContent = styled.div`
 `
 
 const InfoTable = styled.div`
-  ${props => props.theme.media.upTo.desktop} {
-    font-size: 0.9rem;
-  }
+  font-size: ${props => props.theme.font.size.medium};
 `
 
 const InfoTableRow = styled.div`
@@ -84,7 +82,7 @@ const InfoTableRow = styled.div`
 `
 
 const InfoTitle = styled.div`
-  width: 5.5rem;
+  width: 6rem;
   text-align: right;
   font-family: NexaLight;
 

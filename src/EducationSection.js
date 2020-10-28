@@ -7,19 +7,18 @@ import titleImage from './assets/img/graduation_cap.png'
 const DATE_FORMAT = 'MMM, YYYY'
 const EducationBlock = styled.div`
   margin-bottom: 1.5rem;
-`
-const EducationRowBold = styled.div`
-  font-family: 'NexaBold';
-`
-const EducationRowLight = styled.div`
-  font-family: 'NexaLight';
+  font-size: ${props => props.theme.font.size.medium};
 `
 
-const EducationRow = ({bold, children}) => {
-  return bold
-    ? <EducationRowBold>{children}</EducationRowBold>
-    : <EducationRowLight>{children}</EducationRowLight>
-}
+const EducationTitle = styled.div`
+  font-family: 'NexaBold';
+  font-size: ${props => props.theme.font.size.mediumLarge};
+`
+
+const EducationDetails = styled.div`
+  font-family: 'NexaLight';
+  font-size: ${props => props.theme.font.size.medium};
+`
 
 export const EducationSection = () => {
   const masterStart = moment('2014-05-01')
@@ -28,20 +27,20 @@ export const EducationSection = () => {
   const bachelelorEnd = moment('2014-05-01')
   return <Section image={titleImage} title="Education">
     <EducationBlock>
-      <EducationRow bold>Master of science (Technology)</EducationRow>
-      <EducationRow bold>Computer science</EducationRow>
-      <EducationRow>{`Aalto University ${masterStart.format(DATE_FORMAT)} - ${masterEnd.format(DATE_FORMAT)}`}</EducationRow>
-      <EducationRow>Thesis: System monitoring of Virtual Network Functions</EducationRow>
-      <EducationRow>Major: Cloud computing</EducationRow>
-      <EducationRow>Minor: Embedded systems</EducationRow>
+      <EducationTitle>Master of science (Technology)</EducationTitle>
+      <EducationTitle>Computer science</EducationTitle>
+      <EducationDetails>{`Aalto University ${masterStart.format(DATE_FORMAT)} - ${masterEnd.format(DATE_FORMAT)}`}</EducationDetails>
+      <EducationDetails>Thesis: System monitoring of Virtual Network Functions</EducationDetails>
+      <EducationDetails>Major: Cloud computing</EducationDetails>
+      <EducationDetails>Minor: Embedded systems</EducationDetails>
     </EducationBlock>
     <EducationBlock>
-      <EducationRow bold>Bachelor of science (Technology)</EducationRow>
-      <EducationRow bold>Computer science</EducationRow>
-      <EducationRow>{`Aalto University ${bachelelorStart.format(DATE_FORMAT)} - ${bachelelorEnd.format(DATE_FORMAT)}`}</EducationRow>
-      <EducationRow>Thesis: Methods for maintaining the temporal order in event streams (Tapahtumavirtojen aikajärjestyksen hallintamenetelmät)</EducationRow>
-      <EducationRow>Major: Software engineering</EducationRow>
-      <EducationRow>Minor: Data comunications software</EducationRow>
+      <EducationTitle>Bachelor of science (Technology)</EducationTitle>
+      <EducationTitle>Computer science</EducationTitle>
+      <EducationDetails>{`Aalto University ${bachelelorStart.format(DATE_FORMAT)} - ${bachelelorEnd.format(DATE_FORMAT)}`}</EducationDetails>
+      <EducationDetails>Thesis: Methods for maintaining the temporal order in event streams (Tapahtumavirtojen aikajärjestyksen hallintamenetelmät)</EducationDetails>
+      <EducationDetails>Major: Software engineering</EducationDetails>
+      <EducationDetails>Minor: Data comunications software</EducationDetails>
     </EducationBlock>
   </Section>
 }

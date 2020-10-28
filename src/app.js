@@ -8,7 +8,6 @@ import { ExperienceSection } from './ExperienceSection'
 import theme from './theme'
 import './styles.css'
 
-
 export const App = () => {
   return <ThemeProvider theme={theme}>
     <PaperSheet>

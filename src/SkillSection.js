@@ -15,6 +15,8 @@ const LanguageList = styled.ul`
     align-items: center;
     margin: 0.4rem 0;
     padding-right: 1rem;
+    font-size: ${props => props.theme.font.size.medium};
+
     span {
       width: 8rem;
     }
@@ -47,6 +49,7 @@ const TechBlock = styled.div`
     list-style: none;
     padding-left: 0px;
     font-family: NexaLight;
+    font-size: ${props => props.theme.font.size.medium};
   }
 `
 
@@ -55,13 +58,7 @@ const TechBlockTitle = styled.h3`
   margin-top: 0;
   margin-bottom: 0.2rem;
 
-  ${props => props.theme.media.upTo.tablet} {
-    font-size: 1rem;
-  }
-
-  ${props => props.theme.media.from.tablet} {
-    font-size: 1.1rem;
-  }
+  font-size: ${props => props.theme.font.size.mediumLarge};
 `
 
 const LanguageExpertise = ({ name, value }) => <li>
