@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
-import { Section, Subsection } from './components'
+import {Section, Subsection} from './components'
 import titleImage from './assets/img/tie.png'
 
 const DATE_FORMAT = 'MMM, YYYY'
@@ -17,10 +17,8 @@ const ExperienceBlockTitle = styled.div`
 
 const ExperiencePosition = styled.div`
   font-family: NexaBold;
-  margin: 0;
+  margin: 0.5rem 0;
   font-size: ${props => props.theme.font.size.medium};
-  margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
 `
 
 const JobDescription = styled.div`
@@ -43,7 +41,7 @@ const ExperienceBlock = ({company, position, startingDate, endDate, children}) =
   return <ExperienceBlockBase>
     <ExperienceBlockTitle>
       <CompanyName>{company}</CompanyName>
-      <WorkDuration>{startingDate.format(DATE_FORMAT)} - {endDate ? endDate.format(DATE_FORMAT) : 'present' }</WorkDuration>
+      <WorkDuration>{startingDate.format(DATE_FORMAT)} - {endDate ? endDate.format(DATE_FORMAT) : 'present'}</WorkDuration>
     </ExperienceBlockTitle>
     <ExperiencePosition>{position}</ExperiencePosition>
     {children}
@@ -52,7 +50,15 @@ const ExperienceBlock = ({company, position, startingDate, endDate, children}) =
 
 export const ExperienceSection = () => {
   return <Section image={titleImage} title="Experience">
-    <ExperienceBlock company='EPAM Systems' position='Senior software engineer' startingDate={moment('2019-04-22')}>
+    <ExperienceBlock company='Freelancer' startingDate={moment('2021-04-01')}>
+
+    </ExperienceBlock>
+    <ExperienceBlock
+      company='EPAM Systems'
+      position='Senior software engineer'
+      startingDate={moment('2019-04-22')}
+      endDate={moment('2021-03-26')}
+    >
       <JobDescription>
         Working on customer projects in life sciences domain such as:
         <ul>
@@ -95,7 +101,12 @@ export const ExperienceSection = () => {
         </ul>
       </JobDescription>
     </ExperienceBlock>
-    <ExperienceBlock company='Comptel' position='Technical cloud consultant' startingDate={moment('2017-01-01')} endDate={moment('2017-11-02')}>
+    <ExperienceBlock
+      company='Comptel'
+      position='Technical cloud consultant'
+      startingDate={moment('2017-01-01')}
+      endDate={moment('2017-11-02')}
+    >
       <JobDescription>
         Responsible for the technical side of the cloudification of
         core products. My main task was to accumulate knowledge
@@ -107,7 +118,8 @@ export const ExperienceSection = () => {
         based on cloud best practices.
       </JobDescription>
     </ExperienceBlock>
-    <ExperienceBlock company='Comptel' position='Software engineer' startingDate={moment('2015-05-10')} endDate={moment('2016-12-31')}>
+    <ExperienceBlock company='Comptel' position='Software engineer' startingDate={moment('2015-05-10')}
+                     endDate={moment('2016-12-31')}>
       <JobDescription>
         I helped to develop a new UI for one of the core products.
         Doing so I mastered the latest technologies (ReactJS, Redux)
@@ -119,7 +131,8 @@ export const ExperienceSection = () => {
         traction among mobile operators
       </JobDescription>
     </ExperienceBlock>
-    <ExperienceBlock company='Comptel' position='Junior software engineer' startingDate={moment('2011-05-02')} endDate={moment('2014-12-31')}>
+    <ExperienceBlock company='Comptel' position='Junior software engineer' startingDate={moment('2011-05-02')}
+                     endDate={moment('2014-12-31')}>
       <JobDescription>
         Developed SDK platform that is used by company’s
         products. Implemented both front-end and back-end

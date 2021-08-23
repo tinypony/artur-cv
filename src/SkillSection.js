@@ -5,7 +5,7 @@ import titleImage from './assets/img/wrench.png'
 
 const LanguageList = styled.ul`
   list-style: none;
-  padding-left: 0px;
+  padding-left: 0;
   font-family: NexaLight;
   margin-bottom: 2rem;
 
@@ -47,7 +47,7 @@ const TechBlock = styled.div`
   ul {
     margin-top: 0.2rem;
     list-style: none;
-    padding-left: 0px;
+    padding-left: 0;
     font-family: NexaLight;
     font-size: ${props => props.theme.font.size.medium};
   }
@@ -72,8 +72,8 @@ export const SkillSection = () => {
       <LanguageList>
         <LanguageExpertise name='JavaScript' value={100} />
         <LanguageExpertise name='Java' value={85} />
-        <LanguageExpertise name='Bash' value={85} />
         <LanguageExpertise name='Python' value={70} />
+        <LanguageExpertise name='Bash' value={65} />
         <LanguageExpertise name='C' value={60} />
         <LanguageExpertise name='PL/SQL' value={20} />
       </LanguageList>
@@ -86,7 +86,6 @@ export const SkillSection = () => {
             <li>Spring</li>
             <li>NodeJS</li>
             <li>ExpressJS</li>
-            <li>Django</li>
             <li>JPA/Hibernate</li>
             <li>SQL/NoSQL</li>
           </ul>
@@ -96,7 +95,7 @@ export const SkillSection = () => {
           <ul>
             <li>ReactJS</li>
             <li>Redux</li>
-            <li>Angular</li>
+            <li>Vue</li>
             <li>BackboneJS</li>
             <li>HTML5</li>
             <li>CSS/SASS/LESS</li>
@@ -111,7 +110,6 @@ export const SkillSection = () => {
             <li>Mocha</li>
             <li>Jasmine</li>
             <li>Cypress</li>
-            <li>Ansible</li>
             <li>Terraform</li>
           </ul>
         </TechBlock>
@@ -119,10 +117,8 @@ export const SkillSection = () => {
           <TechBlockTitle>Cloud and Distributed systems</TechBlockTitle>
           <ul>
             <li>AWS (EC2, S3, DynamoDB, Cognito, CloudFront, IAM and many more)</li>
-            <li>OpenStack</li>
             <li>Apache Kafka</li>
             <li>ElasticSearch</li>
-            <li>Mesos</li>
             <li>Docker</li>
           </ul>
         </TechBlock>
