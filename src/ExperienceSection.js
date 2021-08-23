@@ -54,21 +54,45 @@ export const ExperienceSection = () => {
   return <Section image={titleImage} title="Experience">
     <ExperienceBlock company='EPAM Systems' position='Senior software engineer' startingDate={moment('2019-04-22')}>
       <JobDescription>
-        Working as a software engineer for customer projects in life sciences domain.
-        Main responsibilities include frontend ReactJS development, backend Spring development, DevOps with AWS, leading
-        engineering teams and requirements discovery with the stakeholders.
+        Working on customer projects in life sciences domain such as:
+        <ul>
+          <li>Migration of in-house analysis pipeline for cancer patients' genome to
+          opensource Nextflow platform. Univa Grid Engine and AWS Batch were used as compute resource providers.</li>
+          <li>Centralized ETL solution for pre-clinical studies previously stored in Excel format.</li>
+          <li>Rapid prototype for indexing and searching open pharmacology
+          and chemistry datasets (ChEMBL, Guide to pharmacology) offline.</li>
+          <li>Self-service for whitelisting IP ranges for electronic lab notebook SaaS solution.</li>
+        </ul>
+
+        Main responsibilities include
+        <ul>
+          <li>Frontend development with ReactJS</li>
+          <li>Backend development with Spring</li>
+          <li>DevOps in AWS</li>
+          <li>Leading engineering teams</li>
+          <li>Helping with requirements discovery and communicating with the stakeholders</li>
+        </ul>
       </JobDescription>
     </ExperienceBlock>
     <ExperienceBlock
       company='PHZ FullStack'
-      position='Senior software envgineer'
+      position='Senior software engineer'
       startingDate={moment('2017-11-03')}
       endDate={moment('2019-04-19')}
     >
       <JobDescription>
         Working as a consulting fullstack developer specializing in JavaScript
         frontends using ReactJS, JavaScript backends running on NodeJS, and
-        Spring-powered Java backends. Client projects available in PDF version of this CV.
+        Spring-powered Java backends.
+        <br />
+        Projects included:
+        <ul>
+          <li>Development of digital services for Finnish Population Register Centre (Väestörekisterikeskus).
+          For example service for changing own first name, service for getting government-issued certificates
+          such as life certificate, marriage certificate, residency certificate, etc.</li>
+          <li>Mobile application for a pilot project aimed at the digitisation
+          of services of the biggest indoor adventure park chain in Finland.</li>
+        </ul>
       </JobDescription>
     </ExperienceBlock>
     <ExperienceBlock company='Comptel' position='Technical cloud consultant' startingDate={moment('2017-01-01')} endDate={moment('2017-11-02')}>

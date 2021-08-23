@@ -4,10 +4,12 @@
   "description": "Artur web CV",
   "scripts": {
     "build": "react-scripts build",
-    "start": "react-scripts start"
+    "start": "react-scripts start",
+    "pdf": "node export-pdf.js"
   },
   "dependencies": {
     "moment": "2.22.2",
+    "puppeteer": "^5.5.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-transition-group": "^4.4.1",

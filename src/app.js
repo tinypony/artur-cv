@@ -10,7 +10,7 @@ import './styles.css'
 
 export const App = () => {
   return <ThemeProvider theme={theme}>
-    <PaperSheet>
+    <PaperSheet id='paper-sheet'>
       <HeaderSection />
       <SkillSection />
       <EducationSection />

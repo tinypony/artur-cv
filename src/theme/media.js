@@ -10,5 +10,6 @@ export default {
   from: {
     phablet: '@media (min-width: 351px)',
     tablet: '@media (min-width: 768px)'
-  }
+  },
+  print: '@media print'
 }

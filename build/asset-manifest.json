@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.b93a0893.chunk.css",
-    "main.js": "/static/js/main.178a3d81.chunk.js",
-    "main.js.map": "/static/js/main.178a3d81.chunk.js.map",
+    "main.css": "/static/css/main.d66f1512.chunk.css",
+    "main.js": "/static/js/main.34e71c3f.chunk.js",
+    "main.js.map": "/static/js/main.34e71c3f.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.830f8bb3.js",
     "runtime-main.js.map": "/static/js/runtime-main.830f8bb3.js.map",
-    "static/js/2.d5462287.chunk.js": "/static/js/2.d5462287.chunk.js",
-    "static/js/2.d5462287.chunk.js.map": "/static/js/2.d5462287.chunk.js.map",
+    "static/js/2.ead9537b.chunk.js": "/static/js/2.ead9537b.chunk.js",
+    "static/js/2.ead9537b.chunk.js.map": "/static/js/2.ead9537b.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.b93a0893.chunk.css.map": "/static/css/main.b93a0893.chunk.css.map",
-    "static/js/2.d5462287.chunk.js.LICENSE.txt": "/static/js/2.d5462287.chunk.js.LICENSE.txt",
+    "static/css/main.d66f1512.chunk.css.map": "/static/css/main.d66f1512.chunk.css.map",
+    "static/js/2.ead9537b.chunk.js.LICENSE.txt": "/static/js/2.ead9537b.chunk.js.LICENSE.txt",
     "static/media/styles.css": "/static/media/Nexa_Free_Light-webfont.a6a66432.woff",
     "static/media/graduation_cap.50f4f4c9.png": "/static/media/graduation_cap.50f4f4c9.png",
     "static/media/head.9c8c804c.png": "/static/media/head.9c8c804c.png",
@@ -18,8 +18,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.830f8bb3.js",
-    "static/js/2.d5462287.chunk.js",
-    "static/css/main.b93a0893.chunk.css",
-    "static/js/main.178a3d81.chunk.js"
+    "static/js/2.ead9537b.chunk.js",
+    "static/css/main.d66f1512.chunk.css",
+    "static/js/main.34e71c3f.chunk.js"
   ]
 }

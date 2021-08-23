@@ -6,12 +6,12 @@ export const PaperSheet = styled.div`
   background: white;
 
   ${props => props.theme.media.desktop} {
-      width: 1024px;
-      box-shadow: ${props => props.theme.color.documentShadow} 0px 1px 3px 0px;
+    width: 1024px;
+    box-shadow: ${props => props.theme.color.documentShadow} 0px 1px 3px 0px;
   }
 
+  ${props => props.theme.media.print},
   ${props => props.theme.media.upTo.desktop} {
-      width: 100%;
+    width: 100%;
   }
-
 `

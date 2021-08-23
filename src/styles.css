@@ -15,7 +15,14 @@ body {
 }
 
 @media (max-width: 1023px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media print {
   body {
-    font-size: 14px;
+    padding: 0;
+    margin: 0;
   }
 }

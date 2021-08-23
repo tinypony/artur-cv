@@ -22,7 +22,7 @@ const ContenWrapper = styled.div`
 `
 
 const HeadImage = styled.div`
-  border-radius: 250px;
+  border-radius: 16rem;
   background-color: white;
   padding: 1rem;
   overflow: hidden;
@@ -30,17 +30,11 @@ const HeadImage = styled.div`
   ${props => props.theme.media.desktop} {
     position: absolute;
     left: -10rem;
-    img {
-      width: 250px;
-      border-radius: 250px;
-    }
   }
 
-  ${props => props.theme.media.upTo.desktop} {
-    img {
-      width: 180px;
-      border-radius: 250px;
-    }
+  img {
+    width: 16rem;
+    border-radius: 16rem;
   }
 `
 
@@ -106,6 +100,8 @@ const InfoPayload = styled.div`
 
 const LinkedInLink = styled.a`
   color: #30c0d2;
+  text-decoration: none;
+  
   &:visited {
     color: #30c0d2;
   }

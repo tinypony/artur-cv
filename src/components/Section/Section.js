@@ -6,6 +6,7 @@ const StyledSection = styled.div`
   width: 100%;
   display: flex;
 
+  ${props => props.theme.media.print},
   ${props => props.theme.media.desktop} {
     flex-direction: row;
   }
@@ -25,6 +26,7 @@ const SectionTitleWrapper = styled.div`
     top: 0.25rem;
   }
 
+  ${props => props.theme.media.print},
   ${props => props.theme.media.desktop} {
     justify-content: end;
   }
@@ -42,6 +44,7 @@ const SectionTitleBody = styled.div`
     background-color: ${props => props.theme.color.leftPadBackground};
     text-align: end;
     font-size: ${props => props.theme.font.size.large};
+    box-shadow: -14px 0px 15px -15px rgba(0,0,0,0.2) inset;
   }
 
   ${props => props.theme.media.upTo.desktop} {
@@ -50,9 +53,10 @@ const SectionTitleBody = styled.div`
 `
 
 const SectionTitle = styled.div`
+  flex-grow: 1;
   font-family: Raleway;
   font-size: 1.4rem;
-  text-align: end;
+  text-align: start;
   border-bottom: 1px solid ${props => props.theme.color.textDark};
   margin-left: 0.5rem;
   padding: 0 3rem 0 0.5rem;
