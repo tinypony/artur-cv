@@ -8,7 +8,7 @@ async function printPDF() {
     width: 1024,
     height: 1280
   })
-  await page.goto('http://localhost:3000', { waitUntil: 'networkidle0' })
+  await page.goto('http://localhost:5000', { waitUntil: 'networkidle0' })
   const pdfConfig = {
     path: `${__dirname}/artur_latypov_cv.pdf`,
     format: 'A4',

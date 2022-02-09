@@ -50,8 +50,14 @@ const ExperienceBlock = ({company, position, startingDate, endDate, children}) =
 
 export const ExperienceSection = () => {
   return <Section image={titleImage} title="Experience">
-    <ExperienceBlock company='Freelancer' startingDate={moment('2021-04-01')}>
-
+    <ExperienceBlock
+      company='Freelancer'
+      position='Master chief of fullstack development'
+      startingDate={moment('2021-04-01')}
+    >
+      <JobDescription>
+        Implementation of customer project in financial and investment domain. Main technologies used are NodeJS, Vue v2, AWS, PostgreSQL
+      </JobDescription>
     </ExperienceBlock>
     <ExperienceBlock
       company='EPAM Systems'
@@ -63,10 +69,12 @@ export const ExperienceSection = () => {
         Working on customer projects in life sciences domain such as:
         <ul>
           <li>Migration of in-house analysis pipeline for cancer patients' genome to
-          opensource Nextflow platform. Univa Grid Engine and AWS Batch were used as compute resource providers.</li>
+            opensource Nextflow platform; Univa Grid Engine and AWS Batch were used as compute resource providers.
+          </li>
           <li>Centralized ETL solution for pre-clinical studies previously stored in Excel format.</li>
           <li>Rapid prototype for indexing and searching open pharmacology
-          and chemistry datasets (ChEMBL, Guide to pharmacology) offline.</li>
+            and chemistry datasets (ChEMBL, Guide to pharmacology) offline.
+          </li>
           <li>Self-service for whitelisting IP ranges for electronic lab notebook SaaS solution.</li>
         </ul>
 
@@ -90,14 +98,16 @@ export const ExperienceSection = () => {
         Working as a consulting fullstack developer specializing in JavaScript
         frontends using ReactJS, JavaScript backends running on NodeJS, and
         Spring-powered Java backends.
-        <br />
+        <br/>
         Projects included:
         <ul>
           <li>Development of digital services for Finnish Population Register Centre (Väestörekisterikeskus).
-          For example service for changing own first name, service for getting government-issued certificates
-          such as life certificate, marriage certificate, residency certificate, etc.</li>
+            For example service for changing own first name, service for getting government-issued certificates
+            such as life certificate, marriage certificate, residency certificate, etc.
+          </li>
           <li>Mobile application for a pilot project aimed at the digitisation
-          of services of the biggest indoor adventure park chain in Finland.</li>
+            of services of the biggest indoor adventure park chain in Finland.
+          </li>
         </ul>
       </JobDescription>
     </ExperienceBlock>

@@ -116,9 +116,9 @@ export const SkillSection = () => {
         <TechBlock>
           <TechBlockTitle>Cloud and Distributed systems</TechBlockTitle>
           <ul>
-            <li>AWS (EC2, S3, DynamoDB, Cognito, CloudFront, IAM and many more)</li>
+            <li>AWS (EC2, VPC, S3, Route53, DynamoDB, Cognito, CloudFront, IAM and many more)</li>
             <li>Apache Kafka</li>
-            <li>ElasticSearch</li>
+            <li>Kubernetes</li>
             <li>Docker</li>
           </ul>
         </TechBlock>
