@@ -1,6 +1,6 @@
 import React from 'react'
-import styled, {ThemeProvider} from 'styled-components'
-import { Section, PaperSheet } from './components'
+import { ThemeProvider } from 'styled-components'
+import { PaperSheet } from './components'
 import { HeaderSection } from './HeaderSection'
 import { SkillSection } from './SkillSection'
 import { EducationSection } from './EducationSection'
@@ -18,4 +18,3 @@ export const App = () => {
     </PaperSheet>
   </ThemeProvider>
 }
-

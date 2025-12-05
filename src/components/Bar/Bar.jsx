@@ -1,35 +1,41 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Transition } from 'react-transition-group'
+import { motion } from 'framer-motion'
 
 const BarContainer = styled.div`
-  border: 2px ${props => props.theme.color.turcose} solid;
+  border-radius: 12px;
+  background: ${props => props.theme.color.background};
+  overflow: hidden;
+  position: relative;
 
   ${props => props.theme.media.desktop} {
-      height: 20px;
+      height: 12px;
       width: 300px;
   }
 
   ${props => props.theme.media.upTo.desktop} {
-      height: 15px;
+      height: 10px;
       width: 100%;
       max-width: 300px;
   }
 `
 
-const getBarWidth = ({ state, value }) => {
-  if (state === 'entering') {
-    return 1
-  } else {
-    return value
-  }
-}
-
-const BarFill = styled.div`
-  width: ${getBarWidth}%;
-  background: ${props => props.theme.color.turcose};
+const BarFill = styled(motion.div)`
+  background: ${props => props.theme.color.gradient};
   height: 100%;
-  transition: width ${props => props.animationSpeed}s cubic-bezier(.47,1.64,.41,.4);
+  border-radius: 12px;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+    border-radius: 12px 12px 0 0;
+  }
 `
 
 function getRandomArbitrary(min, max) {
@@ -37,17 +43,18 @@ function getRandomArbitrary(min, max) {
 }
 
 export const Bar = ({ value }) => {
-  const timeout = getRandomArbitrary(100, 290)
-  const animationSpeed = getRandomArbitrary(150, 250) / 1000
+  const delay = getRandomArbitrary(100, 290) / 1000
+  const animationSpeed = getRandomArbitrary(300, 500) / 1000
 
   return <BarContainer>
-    <Transition in timeout={timeout}
-      appear
-      unmountOnExit
-    >
-      {state => {
-        return <BarFill state={state} value={value} animationSpeed={animationSpeed} />
+    <BarFill
+      initial={{ width: '0%' }}
+      animate={{ width: `${value}%` }}
+      transition={{
+        duration: animationSpeed,
+        delay: delay,
+        ease: [0.22, 1, 0.36, 1]
       }}
-    </Transition>
+    />
   </BarContainer>
 }
